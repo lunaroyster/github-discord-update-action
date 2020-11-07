@@ -3,22 +3,17 @@ const github = require('@actions/github');
 const fetch = require('node-fetch');
 
 async function discord(webhook, args) {
-  try {
-    const res = await fetch(webhook, {
-      method: 'POST',
-      body: JSON.stringify({
-        username: 'GitHub',
-        avatar_url: 'https://github.githubassets.com/images/modules/logos_page/GitHub-Mark.png',
-        ...args,
-      }),
-      headers: {
-        'Content-Type': 'application/json',
-      }
-    });
-    return res;
-  } catch (e) {
-    console.log(e)
-  }
+  return fetch(webhook, {
+    method: 'POST',
+    body: JSON.stringify({
+      username: 'GitHub',
+      avatar_url: 'https://github.githubassets.com/images/modules/logos_page/GitHub-Mark.png',
+      ...args,
+    }),
+    headers: {
+      'Content-Type': 'application/json',
+    }
+  });
 }
 
 async function debug(webhook) {
