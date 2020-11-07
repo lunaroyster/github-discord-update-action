@@ -26,6 +26,8 @@ async function helloworld(webhook) {
 }
 
 async function debug(webhook) {
+  console.log(github)
+  console.log(github.event)
   await discord(webhook, {
     content: JSON.stringify(github.event),
   });
