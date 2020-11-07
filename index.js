@@ -27,7 +27,7 @@ async function helloworld(webhook) {
 
 async function debug(webhook) {
   await discord(webhook, {
-    content: JSON.stringify(github),
+    content: JSON.stringify(github.event),
   });
   console.log(`Posted debug message.`);
 }
@@ -36,7 +36,7 @@ async function main() {
   try {
     const discordWebhook = core.getInput('discordwebhook');
     console.log(`Using ${discordWebhook}`);
-    await helloworld(discordWebhook);
+    await debug(discordWebhook);
   } catch (e) {
     console.log(e);
     core.setFailed(e.message);
