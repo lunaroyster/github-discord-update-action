@@ -1,5 +1,9 @@
 name: 'Discord Update Bot'
 description: 'Triggers discord webhooks'
+inputs:
+  discord-webhook:
+    description: 'The discord wehbook to post to'
+    required: true
 runs:
   using: 'node12'
   main: 'dist/index.js'
