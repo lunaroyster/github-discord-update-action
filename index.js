@@ -3,7 +3,7 @@ const github = require('@actions/github');
 const fetch = require('node-fetch');
 
 async function discord(webhook, args) {
-  const res = fetch(webhook, {
+  const res = await fetch(webhook, {
     method: 'POST',
     body: JSON.stringify({
       username: 'GitHub',

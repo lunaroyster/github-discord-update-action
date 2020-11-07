@@ -10,7 +10,7 @@ const github = __webpack_require__(283);
 const fetch = __webpack_require__(341);
 
 async function discord(webhook, args) {
-  const res = fetch(webhook, {
+  const res = await fetch(webhook, {
     method: 'POST',
     body: JSON.stringify({
       username: 'GitHub',
