@@ -1,0 +1,25 @@
+{
+  "name": "github-discord-update-action",
+  "version": "1.0.0",
+  "description": "(WIP)",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "ncc build index.js --license LICENSE"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/lunaroyster/github-discord-update-action.git"
+  },
+  "keywords": [],
+  "author": "lunaroyster",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/lunaroyster/github-discord-update-action/issues"
+  },
+  "homepage": "https://github.com/lunaroyster/github-discord-update-action#readme",
+  "dependencies": {
+    "@actions/core": "^1.2.6",
+    "@actions/github": "^4.0.0"
+  }
+}

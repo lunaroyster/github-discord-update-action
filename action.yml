@@ -1,0 +1,5 @@
+name: 'Discord Update Bot'
+description: 'Triggers discord webhooks'
+runs:
+  using: 'node12'
+  main: 'dist/index.js'
