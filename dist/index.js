@@ -31,14 +31,17 @@ async function discord(webhook, args) {
 async function debug(webhook) {
   await discord(webhook, {
     content: JSON.stringify(github),
-  })
+  });
+  console.log(`Posted debug message.`);
 }
 
 async function main() {
   try {
     const discordWebhook = core.getInput('discord-webhook');
+    console.log(`Using ${discordWebhook}`);
     await debug(discordWebhook);
   } catch (e) {
+    console.log(e);
     core.setFailed(e.message);
   }
 }
