@@ -1,7 +1,7 @@
 name: 'Discord Update Bot'
 description: 'Triggers discord webhooks'
 inputs:
-  discord-webhook:
+  discordwebhook:
     description: 'The discord wehbook to post to'
     required: true
 runs:

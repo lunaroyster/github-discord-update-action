@@ -10,7 +10,7 @@ const github = __webpack_require__(283);
 const fetch = __webpack_require__(341);
 
 async function discord(webhook, args) {
-  return fetch(webhook, {
+  const res = fetch(webhook, {
     method: 'POST',
     body: JSON.stringify({
       username: 'GitHub',
@@ -21,6 +21,8 @@ async function discord(webhook, args) {
       'Content-Type': 'application/json',
     }
   });
+  console.log(res);
+  return res;
 }
 
 async function debug(webhook) {
@@ -32,7 +34,7 @@ async function debug(webhook) {
 
 async function main() {
   try {
-    const discordWebhook = core.getInput('discord-webhook');
+    const discordWebhook = core.getInput('discordwebhook');
     console.log(`Using ${discordWebhook}`);
     await debug(discordWebhook);
   } catch (e) {
