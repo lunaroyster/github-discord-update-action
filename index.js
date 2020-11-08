@@ -34,6 +34,7 @@ async function debug(webhook) {
 
 async function pushEvent(webhook) {
   const { payload } = github.context;
+  console.log(payload)
   await discord(webhook, {
     embeds: [
       {
