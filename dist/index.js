@@ -21,7 +21,9 @@ async function discord(webhook, args) {
       'Content-Type': 'application/json',
     }
   });
-  console.log(res);
+  if (res.status >= 400) {
+    throw new Error(`Webhook returned HTTP ${res.status}: ${JSON.stringify(await res.json())}`)
+  }
   return res;
 }
 
@@ -29,7 +31,7 @@ async function helloworld(webhook) {
   await discord(webhook, {
     content: "hello world",
   });
-  console.log(`Posted debug message.`);
+  console.log(`Posted hello world message.`);
 }
 
 async function debug(webhook) {
@@ -55,14 +57,13 @@ async function pushEvent(webhook) {
       }
     ],
   });
-  console.log(`Posted debug message.`);
+  console.log(`Posted pushEvent notification`);
 }
 
 async function main() {
   try {
     const discordWebhook = core.getInput('discordwebhook');
-    console.log(`Using ${discordWebhook}`);
-    await pushEvent(discordWebhook);
+    await helloworld(discordWebhook);
   } catch (e) {
     console.log(e);
     core.setFailed(e.message);
