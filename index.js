@@ -33,18 +33,17 @@ async function debug(webhook) {
 }
 
 async function pushEvent(webhook) {
-  const context = github.context;
-  console.log(context)
+  const { payload } = github.context;
   await discord(webhook, {
     embeds: [
       {
-        title: `${context.payload.commits.length} commit(s) on main`,
+        title: `${payload.commits.length} commit(s) on main`,
         author: {
-          name: `${context.sender.login}`,
-          url: `${context.sender.html_url}`,
-          icon_url: `${context.sender.avatar_url}`
+          name: `${payload.sender.login}`,
+          url: `${payload.sender.html_url}`,
+          icon_url: `${payload.sender.avatar_url}`
         },
-        description: context.payload.commits.join(c => `[[${c.id}](${c.url})] ${c.message}`)
+        description: payload.payload.commits.join(c => `[[${c.id}](${c.url})] ${c.message}`)
       }
     ],
   });
