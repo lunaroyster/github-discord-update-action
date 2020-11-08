@@ -56,7 +56,7 @@ async function pushEvent(webhook) {
 async function main() {
   try {
     const discordWebhook = core.getInput('discordwebhook');
-    await helloworld(discordWebhook);
+    await pushEvent(discordWebhook);
   } catch (e) {
     console.log(e);
     core.setFailed(e.message);
