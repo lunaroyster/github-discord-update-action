@@ -38,7 +38,8 @@ async function pushEvent(webhook) {
   await discord(webhook, {
     embeds: [
       {
-        title: `${payload.commits.length} commit(s) on ${payload.ref.split('/')[2]}. ([compare](${payload.compare}))`,
+        title: `${payload.commits.length} commit(s) on ${payload.ref.split('/')[2]}`,
+        url: `${payload.compare}`,
         author: {
           name: `${payload.sender.login}`,
           url: `${payload.sender.html_url}`,
