@@ -51,7 +51,7 @@ async function pushEvent(webhook) {
           url: `${payload.sender.html_url}`,
           icon_url: `${payload.sender.avatar_url}`
         },
-        description: payload.commits.map(c => `[[${c.id}](${c.url})] ${c.message}`).join('\n'),
+        description: payload.commits.map(c => `[[${c.id.slice(0,7)}](${c.url})] ${c.message}`).join('\n'),
       }
     ],
   });
